@@ -477,22 +477,6 @@ def get_input_json(data):
         sub_block["block_size"] = block_size
         del sub_block["index"]
         del sub_block["block_content"]
-
-    # from paddlex.inference.pipelines.layout_parsing.utils import get_layout_ordering
-    # parsing_result = get_layout_ordering(
-    #     parsing_result,
-    #     no_mask_labels=[
-    #         "text",
-    #         "formula",
-    #         "algorithm",
-    #         "reference",
-    #         "content",
-    #         "abstract",
-    #     ],
-    # )
-
-    # for sub_block in parsing_result:
-    #     sub_block["block_size"] = block_size
     return parsing_result
 
 
@@ -537,10 +521,6 @@ def mineru_generate_input_data(data, gt_data):
                 gt_data[block_index]["sub_indices"]
             )
         else:
-            # sub_blocks = sorted(
-            #     sub_blocks, key=lambda x: (x["index"], x.("bbox",[0,0])[1], x.get("bbox",[0,0])[0])
-            # )
-
             for i, sub_block in enumerate(sub_blocks):
                 if sub_block.get("index") != None:
                     input_data[block_index]["sub_bboxes"].append(
@@ -603,31 +583,31 @@ def main(
         dir_name = keys[index]
 
         if num != -1:
-            input_json = f"/home/shuai.liu01/DocBench-100/{num}/out_{num}.json"
-            gt_data = load_data_from_json(f"/home/shuai.liu01/gt_{num}.json")
+            input_json = f"xxx/DocBench-100/{num}/out_{num}.json"
+            gt_data = load_data_from_json(f"xxx/gt_{num}.json")
         else:
             input_json = (
-                f"/home/shuai.liu01/PaddleXrc/input_jsons/output_{dir_name}.json"
+                f"xxx/input_jsons/output_{dir_name}.json"
             )
             # input_json = (
-            #     f"/home/shuai.liu01/PaddleXrc/mineru_results/output_{dir_name}.json"
+            #     f"xxx/mineru_results/output_{dir_name}.json"
             # )
             gt_data = load_data_from_json(
-                f"/home/shuai.liu01/PaddleXrc/gt/gt_{dir_name}.json"
+                f"xxx/gt/gt_{dir_name}.json"
             )
 
         gt_data = gt_data[page_start_idx:page_end_idx]
 
         # PaddleX
         # input_jsons = glob.glob(
-        #     f"/home/shuai.liu01/PaddleXrc/api_examples/pipelines/all_gt/{num}/*.json"
+        #     f"xxx/api_examples/pipelines/all_gt/{num}/*.json"
         # )
         # input_jsons = glob.glob(
-        #     f"/home/shuai.liu01/PaddleXrc/api_examples/pipelines/{dir_name}/{num}/*.json"
+        #     f"xxx/api_examples/pipelines/{dir_name}/{num}/*.json"
         # )
         # input_jsons = glob.glob(
-        #     # f"/home/shuai.liu01/PaddleXrc/api_examples/pipelines/{dir_name}/*.json"
-        #     f"/home/shuai.liu01/PaddleXrc/api_examples/pipelines/complex_30/*.json"
+        #     # f"xxx/api_examples/pipelines/{dir_name}/*.json"
+        #     f"xxx/api_examples/pipelines/complex_30/*.json"
         # )
         # input_jsons.sort(key=lambda x: int(os.path.basename(x).split("_")[1]))
         # input_data = []
@@ -647,7 +627,7 @@ def main(
             input_data.append(paddlex_generate_input_data(page_data, [gt_data[i]]))
 
         # # MinerU
-        # data = load_data_from_json(f"/home/shuai.liu01/PaddleXrc/mineru_results/mineru/{dir_name}_middle.json")
+        # data = load_data_from_json(f"xxx/mineru_results/mineru/{dir_name}_middle.json")
         # input_data = mineru_generate_input_data(data,gt_data)
         bleu_score, ard, tau, edit_dist = calculate_metrics_with_page(
             input_data, gt_data, debug=debug
@@ -671,7 +651,7 @@ if __name__ == "__main__":
     #     for dir_name in dir_list:
     #         # PaddleX
     #         input_jsons = glob.glob(
-    #             f"/home/shuai.liu01/PaddleXrc/api_examples/pipelines/{dir_name}/{num}/*.json"
+    #             f"xxx/api_examples/pipelines/{dir_name}/{num}/*.json"
     #         )
 
     #         input_jsons.sort(key=lambda x: int(os.path.basename(x).split("_")[1]))
@@ -681,4 +661,4 @@ if __name__ == "__main__":
     #             data = load_data_from_json(input_json)
     #             input_data.append(get_gt_json(data,i))
 
-    #         write_data_from_json(f"/home/shuai.liu01/PaddleXrc/api_examples/pipelines/{dir_name}/gt_{num}.json",input_data)
+    #         write_data_from_json(f"xxx/api_examples/pipelines/{dir_name}/gt_{num}.json",input_data)
