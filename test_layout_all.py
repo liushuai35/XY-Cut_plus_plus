@@ -35,8 +35,8 @@ try:
     count_t = 0
     for key in keys:
         time_t, count_t = direct_test(
-            f"/home/shuai.liu01/PaddleXrc/input_jsons/input_{key}.json",
-            f"/home/shuai.liu01/PaddleXrc/input_jsons/output_{key}.json",
+            f"xxx/input_jsons/input_{key}.json",
+            f"xxx/input_jsons/output_{key}.json",
             min_gap_x=min_gap_x,
             min_gap_y=min_gap_y,
             is_only_x=is_only_x,
