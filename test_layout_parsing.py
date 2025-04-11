@@ -23,8 +23,8 @@ page_idx = 1
 test = 0
 if test == 0:
     direct_test(
-        f"/home/shuai.liu01/DocBench-100/{num}/input_{num}.json",
-        f"/home/shuai.liu01/DocBench-100/{num}/out_{num}.json",
+        f"xxx/DocBench-100/{num}/input_{num}.json",
+        f"xxx/DocBench-100/{num}/out_{num}.json",
         min_gap_x=1000,
         min_gap_y=6000,
         is_only_x=True,
@@ -32,8 +32,8 @@ if test == 0:
     main(debug=True, start_idx=0, end_idx=1, num=num)
 else:
     direct_test(
-        f"/home/shuai.liu01/DocBench-100/{num}/input_{num}.json",
-        f"/home/shuai.liu01/DocBench-100/{num}/out_{num}.json",
+        f"xxx/DocBench-100/{num}/input_{num}.json",
+        f"xxx/DocBench-100/{num}/out_{num}.json",
         min_gap_x=1000,
         min_gap_y=6000,
         is_only_x=True,
@@ -50,8 +50,8 @@ else:
     )
 
 # direct_test(
-#     f"/home/shuai.liu01/PaddleXrc/api_examples/pipelines/mineru/input_{num}.json",
-#     f"/home/shuai.liu01/PaddleXrc/api_examples/pipelines/mineru/out_{num}.json",
+#     f"xxx/input_{num}.json",
+#     f"xxx/out_{num}.json",
 # )
 
 # keys = ["1andmore_column", "double_column", "three_column", "single_column",]
@@ -62,8 +62,8 @@ else:
 
 # if test == 0:
 #     direct_test(
-#         f"/home/shuai.liu01/PaddleXrc/input_jsons/input_{key}.json",
-#         f"/home/shuai.liu01/PaddleXrc/input_jsons/output_{key}.json",
+#         f"xxx/input_jsons/input_{key}.json",
+#         f"xxx/input_jsons/output_{key}.json",
 #         min_gap_x=1,
 #         min_gap_y=6,
 #         is_only_x=True,
@@ -71,8 +71,8 @@ else:
 #     main(debug=True, start_idx=index, end_idx=index + 1)
 # else:
 #     direct_test(
-#         f"/home/shuai.liu01/PaddleXrc/input_jsons/input_{key}.json",
-#         f"/home/shuai.liu01/PaddleXrc/input_jsons/output_{key}.json",
+#         f"xxx/input_jsons/input_{key}.json",
+#         f"xxx/input_jsons/output_{key}.json",
 #         min_gap_x=1,
 #         min_gap_y=6,
 #         is_only_x=True,
@@ -87,30 +87,3 @@ else:
 #         page_end_idx=page_idx + 1,
 #     )
 
-
-# import json
-# def load_data_from_json(path):
-#     """
-#     Load data from a JSON file.
-
-#     Args:
-#         path (str): File path to the JSON file.
-
-#     Returns:
-#         dict: Parsed data from the JSON file.
-#     """
-#     with open(path, "r", encoding="utf-8") as file:
-#         data = json.load(file)
-#     return data
-
-
-# def write_data_from_json(path, data):
-#     with open(path, "w", encoding="utf-8") as file:
-#         json.dump(data, file, ensure_ascii=False, indent=4)
-
-
-# data = load_data_from_json("/home/shuai.liu01/PaddleXrc/gt/gt_double_column.json")
-# data.sort(key=lambda x: x["page_idx"])
-# for i in range(len(data)):
-#     data[i]["page_idx"] = i
-# write_data_from_json("/home/shuai.liu01/PaddleXrc/gt/gt_double_column.json", data)
