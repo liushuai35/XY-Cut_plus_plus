@@ -1,3 +1,3 @@
-# 【Submitted to ACMMM25】XY-Cut++: Advanced Layout Ordering via Hierarchical Mask Mechanism on a Novel Benchmark
+# 【Submitted to ...】XY-Cut++: Advanced Layout Ordering via Hierarchical Mask Mechanism on a Novel Benchmark
 
 code and data coming soon
